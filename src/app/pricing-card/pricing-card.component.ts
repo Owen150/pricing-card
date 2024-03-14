@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./pricing-card.component.css']
 })
 export class PricingCardComponent {
+  title = 'price_cards';
+  isToggled: boolean = false;
 
+  toggleBoxChange(event: any) {
+    this.isToggled = event;
+  }
 }

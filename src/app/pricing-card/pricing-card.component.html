@@ -13,7 +13,17 @@
       </div>
 
       <div class="choose">
-        <p>Choose a plan</p>
+        <h3>Choose a plan</h3>
+        <p>Billed monthly</p>
+        <!-- <label class="switch">
+          <input
+            type="checkbox"
+            (ngModelChange)="toggleBoxChange($event)"
+            [(ngModel)]="isToggled"
+          />
+          <span class="slider"></span>
+        </label>
+        <p>Billed anually</p> -->
       </div>
 
       <div class="pricing-container">
@@ -46,7 +56,7 @@
 
           <div class="card-body">
             <div class="select">
-              <select name="" id="">
+              <select class="dropdown" name="" id="">
                 <option value="" selected>2500MAUs</option>
                 <option value="">1000MAUs</option>
                 <option value="">500MAUs</option>
@@ -69,7 +79,7 @@
         <div class="pricing-card">
           <div class="card-header">
             <h2>Enterprise</h2>
-            <p class="price">$29.99/month</p>
+            <p class="price">Let's Talk</p>
           </div>
           <div class="card-body">
             <ul>
