@@ -11,7 +11,7 @@ interface Pricing {
   cycles?: {
     monthly: string;
     yearly: string;
-  } 
+  };
   features: string[];
   featureButton: string;
 }
@@ -42,7 +42,7 @@ export class PricingCardComponent {
     {
       title: 'Pro',
       prices: { monthly: '$99', yearly: '$988' },
-      cycles: {monthly: '/month', yearly:'/year'},
+      cycles: { monthly: '/month', yearly: '/year' },
       features: [
         'All starter features, plus:',
         'Unlimited projects',

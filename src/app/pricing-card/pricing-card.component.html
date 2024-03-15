@@ -31,15 +31,16 @@
           <div class="card-header">
             <h2>{{ pricedata.title }}</h2>
             <p *ngIf="!isToggled" class="price">
-              {{ pricedata.prices.monthly }}<sub>{{ pricedata.cycles?.monthly }}</sub>
+              {{ pricedata.prices.monthly
+              }}<sub>{{ pricedata.cycles?.monthly }}</sub>
             </p>
 
             <p *ngIf="isToggled" class="price">
-              {{ pricedata.prices.yearly }}<sub>{{ pricedata.cycles?.yearly }}</sub>
+              {{ pricedata.prices.yearly
+              }}<sub>{{ pricedata.cycles?.yearly }}</sub>
             </p>
           </div>
           <div class="card-body">
-
             <div *ngIf="pricedata.title === 'Pro'" class="select">
               <select class="dropdown" name="" id="">
                 <option value="" selected>2500MAUs</option>
