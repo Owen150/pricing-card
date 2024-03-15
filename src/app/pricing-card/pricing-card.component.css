@@ -1,0 +1,170 @@
+.planner-page {
+  margin: 0;
+  background-color: black;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .current-plan {
+    background-color: #a81f45;
+    width: 14rem;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+
+    p {
+      font-size: 0.6rem;
+    }
+    h5 {
+      font-size: 0.9rem;
+    }
+  }
+
+  h3 {
+    color: white;
+    text-align: center;
+  }
+  .choose {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    p {
+      bottom: 0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .switch {
+      width: 70px;
+      height: 28px;
+      position: relative;
+      display: inline-block;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: #22262c;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        background-color: white;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+      input:checked + .slider {
+        background-color: #bc1e41;
+      }
+
+      input:checked + .slider:before {
+        background-color: white;
+        transform: translateX(46px);
+      }
+    }
+  }
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pricing-card {
+  background-color: #22262c;
+  width: 220px;
+  margin: 7px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  background-color: #22262c;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-header h2 {
+  font-size: 0.9rem;
+}
+
+.card-header p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 5px;
+  height: 28vh;
+}
+.select {
+  text-align: center;
+  background-color: #22262c;
+
+  .dropdown {
+    background-color: #22262c;
+    color: white;
+    width: 160px;
+    height: 7vh;
+    border: 2px solid gray;
+  }
+}
+
+.card-body ul {
+  padding-left: 25px;
+}
+
+.card-body li {
+  color: white;
+  margin: 8px;
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+.card-body li::marker {
+  color: #a81f45;
+}
+
+.card-footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn {
+  background-color: #22262c;
+  text-decoration: none;
+  color: white;
+  border: 2px solid #a81f45;
+  padding: 6px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 13px;
+}
+
+.btn:hover {
+  background-color: #a81f45;
+}

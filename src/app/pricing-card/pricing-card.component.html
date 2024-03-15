@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="planner-page">
+      <div class="current-plan">
+        <p>Your current plan:</p>
+        <h5>Starter Trial &#8226; 500MAUs</h5>
+      </div>
+
+      <h3>Choose a plan</h3>
+      <div class="choose">
+        <p>Billed monthly</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            (ngModelChange)="toggleBoxChange($event)"
+            [(ngModel)]="isToggled"
+          />
+          <span class="slider"></span>
+        </label>
+        <p>Billed anually</p>
+      </div>
+
+      <div class="pricing-container">
+        <!-- looping of Cards -->
+        <div *ngFor="let pricedata of pricingData" class="pricing-card">
+          <div class="card-header">
+            <h2>{{ pricedata.title }}</h2>
+            <p *ngIf="!isToggled" class="price">
+              {{ pricedata.prices.monthly
+              }}<sub>{{ pricedata.cycles?.monthly }}</sub>
+            </p>
+
+            <p *ngIf="isToggled" class="price">
+              {{ pricedata.prices.yearly
+              }}<sub>{{ pricedata.cycles?.yearly }}</sub>
+            </p>
+          </div>
+          <div class="card-body">
+            <div *ngIf="pricedata.title === 'Pro'" class="select">
+              <select class="dropdown" name="" id="">
+                <option value="" selected>2500MAUs</option>
+                <option value="">1000MAUs</option>
+                <option value="">500MAUs</option>
+              </select>
+            </div>
+
+            <ul>
+              <li *ngFor="let feature of pricedata.features">{{ feature }}</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <button class="btn">{{ pricedata.featureButton }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
