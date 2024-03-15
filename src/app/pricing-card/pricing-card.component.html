@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
   </head>
   <body>
     <div class="planner-page">
@@ -12,10 +11,10 @@
         <h5>Starter Trial &#8226; 500MAUs</h5>
       </div>
 
+      <h3>Choose a plan</h3>
       <div class="choose">
-        <h3>Choose a plan</h3>
         <p>Billed monthly</p>
-        <!-- <label class="switch">
+        <label class="switch">
           <input
             type="checkbox"
             (ngModelChange)="toggleBoxChange($event)"
@@ -23,39 +22,25 @@
           />
           <span class="slider"></span>
         </label>
-        <p>Billed anually</p> -->
+        <p>Billed anually</p>
       </div>
 
       <div class="pricing-container">
-        <!-- Card 1 -->
-        <div class="pricing-card">
+        <!-- looping of Cards -->
+        <div *ngFor="let pricedata of pricingData" class="pricing-card">
           <div class="card-header">
-            <h2>Starter</h2>
-            <p class="price">$19</p>
+            <h2>{{ pricedata.title }}</h2>
+            <p *ngIf="!isToggled" class="price">
+              {{ pricedata.prices.monthly }}<sub>{{ pricedata.cycles?.monthly }}</sub>
+            </p>
+
+            <p *ngIf="isToggled" class="price">
+              {{ pricedata.prices.yearly }}<sub>{{ pricedata.cycles?.yearly }}</sub>
+            </p>
           </div>
           <div class="card-body">
-            <ul>
-              <li>500 MAUs</li>
-              <li>Unlimited guides</li>
-              <li>Unlimited flows</li>
-              <li>Unlimited branded themes</li>
-              <li>Email support</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <button class="btn">Choose Plan</button>
-          </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="pricing-card">
-          <div class="card-header">
-            <h2>Pro</h2>
-            <p class="price">$99/month</p>
-          </div>
-
-          <div class="card-body">
-            <div class="select">
+            <div *ngIf="pricedata.title === 'Pro'" class="select">
               <select class="dropdown" name="" id="">
                 <option value="" selected>2500MAUs</option>
                 <option value="">1000MAUs</option>
@@ -64,34 +49,11 @@
             </div>
 
             <ul>
-              <li>All starter features, plus:</li>
-              <li>Unlimited projects</li>
-              <li>Unlimited fully customizable themes</li>
-              <li>A dedicated customer success manager</li>
+              <li *ngFor="let feature of pricedata.features">{{ feature }}</li>
             </ul>
           </div>
           <div class="card-footer">
-            <button class="btn">Choose Plan</button>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="pricing-card">
-          <div class="card-header">
-            <h2>Enterprise</h2>
-            <p class="price">Let's Talk</p>
-          </div>
-          <div class="card-body">
-            <ul>
-              <li>All Pro features</li>
-              <li>Unlimited MAUs</li>
-              <li>Dedicated Environment</li>
-              <li>Enterprise account administration</li>
-              <li>Premium support services</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <button class="btn">Contact Us</button>
+            <button class="btn">{{ pricedata.featureButton }}</button>
           </div>
         </div>
       </div>
